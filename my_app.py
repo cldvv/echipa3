@@ -6,8 +6,8 @@ from PyQt5.QtWidgets import (
         QGroupBox, QRadioButton,
         QPushButton, QLabel, QListWidget, QLineEdit)
 
-#from instr import *
-#from second_win import *
+from instr import *
+from second_win import *
 
        
 class MainWin(QWidget):
@@ -33,7 +33,7 @@ class MainWin(QWidget):
     def initUI(self):
         self.btn_next = QPushButton(txt_next)
         self.hello_text = QLabel(txt_hello)
-        #self.instruction = ...
+        #self.instruction = 
 
         self.layout_line = QVBoxLayout()
         self.layout_line.addWidget(self.hello_text, alignment = Qt.AlignLeft)
@@ -45,19 +45,19 @@ class MainWin(QWidget):
     def next_click(self):
         '''in aceasta functie trebuie sa instantiem (cream) fereastra a2-a'''
         '''numele clasei care creaza feastra a2-a o gasiti in fisierul secon_win.py'''
-        #self.tw = NumeleClaseiFerestreiDoi()
+        self.tw = NumeleClaseiFerestreiDoi()
         self.hide() #aceasta instructiune ascunde fereastra actuala pt a face loc pt cea noua
     
     def connects(self):
         '''functia care conecteaza butonul de functia next_click'''
-        #self.btn_next.clicked.connect(self.NUMELE_FUNCTIEI_CARE_AFISEAZA_FEREASTRA_DOI)
+        self.btn_next.clicked.connect(self.next_click)
 
     def set_appear(self):
         '''functia care seteaza aparenta ferestrei (titlu, dimensiune, pozitia pe ecran)'''
         '''in fisierul instr.py gasiti numele variabilelor in care sunt tinute titlul, latimea, lungimea si pozitia ferestrei'''
-        #self.setWindowTitle(TITLU_FEREASTRA)
-        #self.resize(LATIME_FEREASTRA, LUNGIME_FEREASTRA)
-        #self.move(POZTIA_X, POZITIA_Y)
+        self.setWindowTitle('Health')
+        self.resize(win_width,win_height)
+        self.move(win_x,win_y)
 
 app = QApplication([])
 mw = MainWin()
