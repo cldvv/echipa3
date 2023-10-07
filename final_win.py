@@ -17,13 +17,13 @@ class FinalWin(QWidget):
         self.exp = exp
 
         ''' creating and configuring graphic elements:'''
-        #self.ini...
+        self.initUI()
 
         '''establishes connections between elements'''
-        #self.con...
+        self.connects()
 
         '''sets the window appearance (label, size, location)'''
-        #self.set_ap
+        self.set_appear()
         
         #start:
         self.show()
