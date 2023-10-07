@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import (
         QGroupBox, QRadioButton,
         QPushButton, QLabel, QListWidget, QLineEdit)
         
-#from instr import *
+from instr import *
 
 class FinalWin(QWidget):
     def __init__(self, exp):
@@ -20,12 +20,12 @@ class FinalWin(QWidget):
         #self.ini...
 
         '''establishes connections between elements'''
-        #self.conn...
+        #self.con...
 
         '''sets the window appearance (label, size, location)'''
-        #self.set_ap...
+        #self.set_ap
         
-        # start:
+        #start:
         self.show()
 
     def results(self):
@@ -46,6 +46,6 @@ class FinalWin(QWidget):
     def set_appear(self):
         '''functia care seteaza aparenta ferestrei (titlu, dimensiune, pozitia pe ecran)'''
         '''in fisierul instr.py gasiti numele variabilelor in care sunt tinute titlul, latimea, lungimea si pozitia ferestrei'''
-        #self.setWindowTitle(TITLU_FEREASTRA)
-        #self.resize(LATIME_FEREASTRA, LUNGIME_FEREASTRA)
-        #self.move(POZTIA_X, POZITIA_Y)
+        self.setWindowTitle(txt_title)
+        self.resize(win_width, win_height)
+        self.move(win_x, win_y)
