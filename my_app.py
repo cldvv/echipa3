@@ -56,9 +56,9 @@ class MainWin(QWidget):
     def set_appear(self):
         '''functia care seteaza aparenta ferestrei (titlu, dimensiune, pozitia pe ecran)'''
         '''in fisierul instr.py gasiti numele variabilelor in care sunt tinute titlul, latimea, lungimea si pozitia ferestrei'''
-        #self.setWindowTitle(TITLU_FEREASTRA)
-        #self.resize(LATIME_FEREASTRA, LUNGIME_FEREASTRA)
-        #self.move(POZTIA_X, POZITIA_Y)
+        self.setWindowTitle('Health')
+        self.resize(win_width,win_height)
+        self.move(win_x,win_y)
 
 app = QApplication([])
 mw = MainWin()
