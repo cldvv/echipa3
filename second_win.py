@@ -6,8 +6,8 @@ from PyQt5.QtWidgets import (
         QGroupBox, QRadioButton,
         QPushButton, QLabel, QListWidget, QLineEdit)
 
-#from instr import *
-#from final_win import *
+from instr import *
+from final_win import *
 
 class Person():
     def __init__(self, name, age):
@@ -47,9 +47,9 @@ class TestWin(QWidget):
         self.btn_next = QPushButton(txt_sendresults, self)
         '''modificati cele 3 linii comentate de mai jos ca sa instantiati 3 butoane.
            Cautati variabilele care contin textele in fisierul instr.py'''
-        self.btn_test1 = butonul (txt_test1)
-        self.btn_test2 = butonul (txt_test2)
-        self.btn_test3 = butonul (txt_test3)
+        self.btn_test1 = QPushButton (txt_test1)
+        self.btn_test2 = QPushButton (txt_test2)
+        self.btn_test3 = QPushButton (txt_test3)
 
 
         self.text_name = QLabel(txt_name)
