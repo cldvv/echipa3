@@ -43,7 +43,7 @@ class TestWin(QWidget):
 
     def initUI(self):
         ''' creates graphic elements '''
-        self.questionnary = AllQuestions()
+        #self.questionnary = AllQuestions()
         self.btn_next = QPushButton(txt_sendresults, self)
         '''modificati cele 3 linii comentate de mai jos ca sa instantiati 3 butoane.
            Cautati variabilele care contin textele in fisierul instr.py'''
@@ -70,10 +70,18 @@ class TestWin(QWidget):
         self.line_age.setValidator(self.validator) # age should be a number!
         self.line_age.setValidator(QIntValidator(7, 150))
 
-        '''la fel ca line_age de mai sus, instantiati alte 3 casute de text
-           line_test1 (txt_hinttest1), 
-           line_test2 (txt_hinttest2), 
-           line_test3 (txt_hinttest3)'''
+        self.line_test1 = QLineEdit(txt_hinttest1)
+        self.line_test1.setValidator(self.validator) # age should be a number!
+        self.line_test1.setValidator(QIntValidator(7, 150))
+
+        self.line_test2 = QLineEdit(txt_hinttest2)
+        self.line_test2.setValidator(self.validator) # age should be a number!
+        self.line_test2.setValidator(QIntValidator(7, 150))
+
+        self.line_test3 = QLineEdit(txt_hinttest3)
+        self.line_test3.setValidator(self.validator) # age should be a number!
+        self.line_test3.setValidator(QIntValidator(7, 150))
+
         
         self.l_line = QVBoxLayout() #PANOUL DIN STANGA (pt texte, casute de text, butoane)
         self.r_line = QVBoxLayout() #PANOUL DIN DREAPTA (pt numarator genoflexiuni si temporizator)
@@ -85,13 +93,13 @@ class TestWin(QWidget):
         self.l_line.addWidget(self.line_age, alignment = Qt.AlignLeft)
         self.l_line.addWidget(self.text_test1, alignment = Qt.AlignLeft)
         #self.l_line.addWidget(self.btn_test1, alignment = Qt.AlignLeft)
-        #self.l_line.addWidget(self.line_test1, alignment = Qt.AlignLeft) 
+        self.l_line.addWidget(self.line_test1, alignment = Qt.AlignLeft) 
         self.l_line.addWidget(self.text_test2, alignment = Qt.AlignLeft)
         #self.l_line.addWidget(self.btn_test2, alignment = Qt.AlignLeft) 
         self.l_line.addWidget(self.text_test3, alignment = Qt.AlignLeft)
         #self.l_line.addWidget(self.btn_test3, alignment = Qt.AlignLeft)
-        #self.l_line.addWidget(self.line_test2, alignment = Qt.AlignLeft)
-        #self.l_line.addWidget(self.line_test3, alignment = Qt.AlignLeft) 
+        self.l_line.addWidget(self.line_test2, alignment = Qt.AlignLeft)
+        self.l_line.addWidget(self.line_test3, alignment = Qt.AlignLeft) 
         self.l_line.addWidget(self.btn_next, alignment = Qt.AlignCenter) 
         self.h_line.addLayout(self.l_line)  
         self.h_line.addLayout(self.r_line)        

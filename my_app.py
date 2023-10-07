@@ -38,8 +38,9 @@ class MainWin(QWidget):
 
         self.layout_line = QVBoxLayout()
         self.layout_line.addWidget(self.hello_text, alignment = Qt.AlignLeft)
-        #adauga in panou Qlabelul instruction aliniat la stanga
-        #adauga in panou Qbutonul next aliniat pe centru      
+        self.layout_line.addWidget(self.instruction, alignment = Qt.AlignLeft)
+        self.layout_line.addWidget(self.btn_next, alignment = Qt.AlignCenter)
+    
         self.setLayout(self.layout_line)
 
     '''functia care este declansata la apasarea butonului next'''
