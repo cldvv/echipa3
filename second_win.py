@@ -42,9 +42,6 @@ class TestWin(QWidget):
         self.tw = TestWin()
         self.hide()
 
-    def connects(self):
-        self.btn_next.clicked.connect(self.next_click)
-
     ''' sets what the window will look like (label, size, location) '''
     def set_appear(self):
         self.setWindowTitle(txt_title)
@@ -64,7 +61,7 @@ class TestWin(QWidget):
         self.text_test1 = QLabel(txt_test1)
         self.text_test2 = QLabel(txt_test2)
         self.text_test3 = QLabel(txt_test3)
-        self.text_timer = QLabel(txt_timer)
+        self.text_timer = QLabel("")
         self.text_timer.setFont(QFont("Times", 36, QFont.Bold))
 
         self.loc = QLocale(QLocale.English, QLocale.UnitedStates) # language, country
@@ -119,9 +116,9 @@ class TestWin(QWidget):
 
     def timer_test1(self):
         global time
-        time = QTime(0, 1, 0)
-        self.time = QTimer()
-        self.timer.timeout.connect(self.timer3.timer3Event)
+        time = QTime(0, 0, 15)
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.timer1Event)
         self.timer.start(1000)
 
     def timer1Event(self):
@@ -129,19 +126,21 @@ class TestWin(QWidget):
         time = time.addSecs(-1)
         self.text_timer.setText(time.toString("hh:mm:ss"))
         self.text_timer.setFont(QFont("Times", 36, QFont.Bold))
-        self.text_timer.setStyleSheet("colo: rgb(0,0,0")
+        self.text_timer.setStyleSheet("color: rgb(0,0,180)")
         if time.toString("hh:mm:ss") == "00:00:00":
             self.timer.stop()
             
     def timer2Event(self):
         global time
-        time =  Qtime(0, 0, 30)
-        self.timer.timeout.connect(self.timer2Event)
-        self.timer.start(1500)
+        time = time.addSecs(-1)
         self.text_timer.setText(time.toString("hh:mm:ss")[6:8])
 
     def timer_bob(self):
-        ''' '''
+        global time
+        time = QTime(0, 0 , 30)
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.timer2Event)
+        self.timer.start(1500)
 
     def timer3Event(self):
         global time
@@ -164,8 +163,8 @@ class TestWin(QWidget):
 
     def connects(self):
         self.btn_next.clicked.connect(self.next_click)
-        self.btn_test1.clicked.connect(self.timer_test)
-        self.btn_test2.clicked.connect(self.timer_sits)
+        self.btn_test1.clicked.connect(self.timer_test1)
+        self.btn_test2.clicked.connect(self.timer_bob)
         self.btn_test3.clicked.connect(self.timer_final)
 
     ''' sets what the window will look like (label, size, location) '''
