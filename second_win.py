@@ -118,10 +118,14 @@ class TestWin(QWidget):
         self.fw = FinalWin(self.exp)
 
     def timer_test1(self):
-        ''' '''
+        global time
+        time = QTime(0, 1, 0)
+        self.time = QTimer()
+        self.timer.timeout.connect(self.timer3.timer3Event)
+        self.timer.start(1000)
 
     def timer1Event(self):
-        ''' '''
+        ''''''
 
     def timer2Event(self):
         ''' '''
