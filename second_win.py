@@ -125,6 +125,7 @@ class TestWin(QWidget):
         self.timer.start(1000)
 
     def timer1Event(self):
+        global time
         time = time.addSecs(-1)
         self.text_timer.setText(time.toString("hh:mm:ss"))
         self.text_timer.setFont(QFont("Times", 36, QFont.Bold))
@@ -133,20 +134,39 @@ class TestWin(QWidget):
             self.timer.stop()
             
     def timer2Event(self):
-        ''' '''
+        global time
+        time =  Qtime(0, 0, 30)
+        self.timer.timeout.connect(self.timer2Event)
+        self.timer.start(1500)
+        self.text_timer.setText(time.toString("hh:mm:ss")[6:8])
 
     def timer_bob(self):
         ''' '''
 
     def timer3Event(self):
-        ''' '''
+        global time
+        if int(time.toString("hh;mm:ss")[6:8]) >= 45:
+            self.time_text.setStyleSheet("color: rgb(0,255,0)")
+        elif int(time.toString("hh:mm:ss")[6:8]) <= 15:
+            self.time_text.setStyleSheet("color: rgb(0,255,0)")
+        else:
+            self.time_text.setStyleSheet("color: rgb(0,0,0)")
+        self.text_timer.setFont(QFont("Times", 36, QFont.Bold))
+        if time.toString("hh:mm:ss") == "00:00:00":
+            self.timer.stop()
 
     def timer_final(self):
-        ''' '''
+        global time
+        time = QTime (0,1,0)
+        self.timer = QTimer
+        self.timer.timeout.connect(self.timer3Event)
+        self.timer.start(1000)
 
     def connects(self):
-        '''conectati butoanele btn_next,   btn_test1,   btn_test2, btn_test3
-        la functiile asociate  next_click, timer_test1, timer_bob, timer_final'''
+        self.btn_next.clicked.connect(self.next_click)
+        self.btn_test1.clicked.connect(self.timer_test)
+        self.btn_test2.clicked.connect(self.timer_sits)
+        self.btn_test3.clicked.connect(self.timer_final)
 
     ''' sets what the window will look like (label, size, location) '''
     def set_appear(self):
