@@ -39,17 +39,28 @@ class FinalWin(QWidget):
         if self.exp.person.age == 7 or self.exp.person.age == 8:
             if self.index >= 21:
                 return txt_res1
-            elif self.index < 21 and self.index >= 17:
+            elif self.index < 11 and self.index >=14.9:
                 return txt_res2
-            elif self.index < 17 and self.index >= 12:
+            elif self.index < 12.5 and self.index >=16.4:
                 return txt_res3
-            elif self.index < 12 and self.index >= 6.5:
+            elif self.index <14 and self.index >= 17.9:
                 return txt_res4
             else:
                 return txt_res5
 
         '''daca/if varsta este intre 9 si 10 ani (inclusive)
          - scrieti ca in exemplul 7-8 ani de mai sus ajustand indecsii dupa tabelul din prezentare'''
+        if self.exp.person.age == 13 or self.exp.person.age == 14:
+            if self.index >= 16.5:
+                return txt_res1
+            elif self.index < 15+ and self.index >= 15+ , 16.5 , 18 , 19.5 , 21:
+                return txt_res2
+            elif self.index < 13-14 and self.index >= 11-14.9 , 12.5-16.4 , 14-17.9 , 15.5-19.4 , 17-20.9 :
+                return txt_res3
+            elif self.index <11-12 and self.index >= 6-10.9 , 7.5-12.4 , 9-13.9 , 10.5-15.4 , 12-16.9:
+                return txt_res4
+            else:
+                return txt_res5
        
         '''daca/if este intre 11 si 12 ani (inclusive)
         - scrieti ca in exemplul 7-8 ani ajustand indecsii dupa tabelul din prezentare'''
