@@ -113,8 +113,8 @@ class TestWin(QWidget):
     
     def next_click(self):
         self.hide()
-        self.prs = Person(self.line_name.text, int(self.line_age.text()))
-        self.exp = Experiment(self.prs, self.line_test1.text(), self.line_test2.text(), self.line_test2.text())
+        self.prs = Person(self.line_name.text(), int(self.line_age.text()))
+        self.exp = Experiment(self.prs, self.line_test1.text(), self.line_test2.text(), self.line_test3.text())
         self.fw = FinalWin(self.exp)
 
     def timer_test1(self):
