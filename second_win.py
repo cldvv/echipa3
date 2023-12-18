@@ -37,22 +37,12 @@ class TestWin(QWidget):
         
         # start:
         self.show()
-    
-    def next_click(self):
-        self.tw = TestWin()
-        self.hide()
+    def textSchimbat(self,txt):
+        print(self)
+        self.text_an_nastere.setText(str(2023-int(txt)))
 
-    def connects(self):
-        self.btn_next.clicked.connect(self.next_click)
-
-    ''' sets what the window will look like (label, size, location) '''
-    def set_appear(self):
-        self.setWindowTitle(txt_title)
-        self.resize(win_width, win_height)
-        self.move(win_x, win_y)
     def initUI(self):
         ''' creates graphic elements '''
-        #self.questionnary = AllQuestions()
         self.btn_next = QPushButton(txt_sendresults, self)
         self.btn_test1 = QPushButton(txt_starttest1, self)
         self.btn_test2 = QPushButton(txt_starttest2, self)
@@ -61,6 +51,7 @@ class TestWin(QWidget):
 
         self.text_name = QLabel(txt_name)
         self.text_age = QLabel(txt_age)
+        self.text.nastere = QLabel()
         self.text_test1 = QLabel(txt_test1)
         self.text_test2 = QLabel(txt_test2)
         self.text_test3 = QLabel(txt_test3)
@@ -88,6 +79,7 @@ class TestWin(QWidget):
         self.line_test3 = QLineEdit(txt_hinttest3)
         self.line_test3.setValidator(self.validator)
         self.line_test3.setValidator(QIntValidator(0, 150))
+
     
         self.l_line = QVBoxLayout()
         self.r_line = QVBoxLayout()
@@ -96,6 +88,7 @@ class TestWin(QWidget):
         self.l_line.addWidget(self.text_name, alignment = Qt.AlignLeft)
         self.l_line.addWidget(self.line_name, alignment = Qt.AlignLeft) 
         self.l_line.addWidget(self.text_age, alignment = Qt.AlignLeft)
+        self.l_line.addWidget(self.text_an_nastere, alignment = Qt.AlignLeft)
         self.l_line.addWidget(self.line_age, alignment = Qt.AlignLeft)
         self.l_line.addWidget(self.text_test1, alignment = Qt.AlignLeft)
         self.l_line.addWidget(self.btn_test1, alignment = Qt.AlignLeft)
@@ -113,6 +106,7 @@ class TestWin(QWidget):
     
     def next_click(self):
         self.hide()
+        self.prs = Person(self.line_name.text(), int(self.line_age.text()))
         self.prs = Person(self.line_name.text(), int(self.line_age.text()))
         self.exp = Experiment(self.prs, self.line_test1.text(), self.line_test2.text(), self.line_test3.text())
         self.fw = FinalWin(self.exp)
@@ -178,6 +172,7 @@ class TestWin(QWidget):
         self.btn_test3.clicked.connect(self.timer_final)
 
     ''' sets what the window will look like (label, size, location) '''
+
     def set_appear(self):
         self.setWindowTitle(txt_title)
         self.resize(win_width, win_height)

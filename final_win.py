@@ -101,8 +101,10 @@ class FinalWin(QWidget):
     def initUI(self):
         ''' creates graphic elements '''
         self.workh_text = QLabel(txt_workheart + self.results())
-        self.index_text = QLabel(txt_index + self.exp.person.name + " " + str(self.index))
-        f.write("Roufier Index for:")
+        self.index_text = QLabel(txt_index + self.exp.person.name + " " + str(self.index))    
+        f = open("rezultat.txt", "w")
+        f.write(txt_workheart + self.results())
+        f.close()
 
         self.layout_line = QVBoxLayout()
         self.layout_line.addWidget(self.index_text, alignment = Qt.AlignCenter)
